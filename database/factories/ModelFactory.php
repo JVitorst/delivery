@@ -26,6 +26,16 @@ $factory->define(delivery\Models\Category::class, function(Faker\Generator $fake
     ];
 });
 
+$factory->define(delivery\Models\Client::class, function(Faker\Generator $faker) {
+    return [
+        'phone' => $faker->phoneNumber,
+        'address' => $faker->address,
+        'city' => $faker->city,
+        'state' => $faker->state,
+        'zipcode' => $faker->postcode
+    ];
+});
+
 $factory->define(delivery\Models\Product::class, function(Faker\Generator $faker) {
     return [
         'name' => $faker->word,

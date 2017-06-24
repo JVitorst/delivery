@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use delivery\Models\User;
+use delivery\Models\Client;
 
 class UserTableSeeder extends Seeder
 {
@@ -13,6 +14,8 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         //cria 10 usuarios
-        factory(User::class, 10)->create();
+        factory(User::class, 10)->create()->each(function($u){
+            $u->client()->save(factory(Client::class)->make());
+        });
     }
 }
