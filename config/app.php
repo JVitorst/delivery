@@ -138,12 +138,20 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
+         * Providers da Biblioteca de Repositories
+         */
+         Prettus\Repository\Providers\RepositoryServiceProvider::class,
+
+
+
+        /*
          * Application Service Providers...
          */
         delivery\Providers\AppServiceProvider::class,
         delivery\Providers\AuthServiceProvider::class,
         delivery\Providers\EventServiceProvider::class,
         delivery\Providers\RouteServiceProvider::class,
+        delivery\Providers\RepositoryServiceProvider::class,
 
     ],
 

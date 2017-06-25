@@ -3,10 +3,13 @@
 namespace delivery\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use delivery\Models\Category;
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 
-class Product extends Model
+class Product extends Model implements Transformable
 {
+    use TransformableTrait;
+
     //Atributo fillable serve para mass assigment, toda vez que for criar
     // registro com o model , ele permitirá que o registro seja criado no construtor esse registro
     // passando por padrão esse campo
@@ -21,4 +24,5 @@ class Product extends Model
     //O produto pertence a uma categoria
     return $this->belongsTo(Category::class);
   }
+
 }

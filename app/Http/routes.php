@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+//Testanto rota do Repository
+Route::get('test', function(){
+  $repository = app()->make('delivery\Repositories\ProductRepository');
+
+  return $repository->all();
+
+});

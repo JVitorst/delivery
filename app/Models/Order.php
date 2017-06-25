@@ -3,15 +3,17 @@
 namespace delivery\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use delivery\Models\Product;
-use delivery\Models\OrderItem;
-use delivery\Models\User;
+use Prettus\Repository\Contracts\Transformable;
+use Prettus\Repository\Traits\TransformableTrait;
 
-class Order extends Model
+class Order extends Model implements Transformable
 {
-    //Atributo fillable serve para mass assigment, toda vez que for criar
-    // registro com o model , ele permitirá que o registro seja criado no construtor esse registro
-    // passando por padrão esse campo
+    use TransformableTrait;
+
+    /*Atributo fillable serve para mass assigment, toda vez que for criar
+     registro com o model , ele permitirá que o registro seja criado no
+     construtor esse registro passando por padrão esse campo */
+
     protected $fillable = [
       'client_id',
       'user_deliveryman_id',
@@ -34,4 +36,5 @@ class Order extends Model
     // ccada categoria tem produto relacionado
     return $this->hasMany(Product::class);
   }
+
 }
