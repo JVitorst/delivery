@@ -14,6 +14,11 @@ use delivery\Validators\CategoryValidator;
  */
 class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepository
 {
+  public function lists($columns = null, $key =null){
+
+    return $this->model->lists('name','id');
+
+  }
     /**
      * Specify Model class name
      *
@@ -24,7 +29,7 @@ class CategoryRepositoryEloquent extends BaseRepository implements CategoryRepos
         return Category::class;
     }
 
-    
+
 
     /**
      * Boot up the repository, pushing criteria

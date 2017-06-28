@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/Sao_Paulo',
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'pt-br',
 
     /*
     |--------------------------------------------------------------------------
@@ -142,7 +142,15 @@ return [
          */
          Prettus\Repository\Providers\RepositoryServiceProvider::class,
 
+         /*
+          * Scafold
+          */
+          Bestmomo\Scafold\ScafoldServiceProvider::class,
 
+          /*
+           * Illuminate - auxilia criação de forms
+           */
+           Illuminate\Html\HtmlServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -200,6 +208,9 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+        //Illuminate Facades para geração dos Forms
+        'Html'      => Illuminate\Html\HtmlFacade::class,
+        'Form'      => Illuminate\Html\FormFacade::class,
 
     ],
 

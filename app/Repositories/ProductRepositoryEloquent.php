@@ -14,6 +14,18 @@ use delivery\Validators\ProductValidator;
  */
 class ProductRepositoryEloquent extends BaseRepository implements ProductRepository
 {
+
+
+  public function onlyTrashed() {
+       $this->model = $this->model->onlyTrashed();
+       return $this;
+    }
+
+  public function withTrashed() {
+       $this->model = $this->model->withTrashed();
+       return $this;
+    }
+
     /**
      * Specify Model class name
      *
@@ -24,7 +36,7 @@ class ProductRepositoryEloquent extends BaseRepository implements ProductReposit
         return Product::class;
     }
 
-    
+
 
     /**
      * Boot up the repository, pushing criteria
