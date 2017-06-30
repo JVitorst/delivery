@@ -60,4 +60,32 @@ Route::group(['prefix' => 'admin','middleware' => 'auth.checkrole', 'as' => 'adm
           'as' => 'products.trash','uses' => 'ProductsController@trash' ]);
   /* Fim das Rotas do Produto*/
 
+  /* Rotas do Cliente*/
+  Route::get('clients', [
+      'as' => 'clients.index','uses' => 'ClientsController@index' ]);
+
+  Route::get('clients/create', [
+      'as' => 'clients.create','uses' => 'ClientsController@create' ]);
+
+  Route::get('clients/edit/{id}', [
+      'as' => 'clients.edit', 'uses' => 'ClientsController@edit' ]);
+
+  Route::post('clients/update/{id}', [
+      'as' => 'clients.update','uses' => 'ClientsController@update' ]);
+
+  Route::post('clients/store', [
+      'as' => 'clients.store','uses' => 'ClientsController@store' ]);
+
+  Route::get('clients/destroy/{id}', [
+      'as' => 'clients.destroy','uses' => 'ClientsController@destroy' ]);
+
+  Route::get('clients/restore/{id}', [
+      'as' => 'clients.restore','uses' => 'ClientsController@restore' ]);
+
+  Route::get('clients/trash', [
+          'as' => 'clients.trash','uses' => 'ClientsController@trash' ]);
+  /* Fim das Rotas do Cliente*/
+
+
+
 });

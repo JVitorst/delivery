@@ -10,20 +10,21 @@ class Client extends Model implements Transformable
 {
     use TransformableTrait;
 
-    //Atributo fillable serve para mass assigment, toda vez que for criar
+    //Atributo fillable -  mass assigment, toda vez que for criado
     // registro com o model , ele permitirá que o registro seja criado no construtor esse registro
     // passando por padrão esse campo
     protected $fillable = [
       'user_id',
       'phone',
+      'address',
       'city',
       'state',
       'zipcode'
   ];
 
   public function user(){
-    // ccada client tem apenas um usuario relacionado ( 1: 1)
-    return $this->hasOne(User::class);
+    // cada client tem apenas um usuario relacionado ( 1: 1)
+    return $this->hasOne(User::class, 'id', 'user_id');
   }
 
 }
