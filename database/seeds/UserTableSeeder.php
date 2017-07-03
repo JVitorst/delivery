@@ -31,6 +31,11 @@ class UserTableSeeder extends Seeder
 
       ]);
 
+      factory(User::class, 4)->create([
+          'role' => 'deliveryman',
+
+      ]);
+
         //cria 10 usuarios
         factory(User::class, 10)->create()->each(function($u){
             $u->client()->save(factory(Client::class)->make());

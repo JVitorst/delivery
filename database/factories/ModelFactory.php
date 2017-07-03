@@ -43,3 +43,17 @@ $factory->define(delivery\Models\Product::class, function(Faker\Generator $faker
         'price' => $faker->numberBetween(5,100)
     ];
 });
+
+$factory->define(delivery\Models\Order::class, function(Faker\Generator $faker) {
+    return [
+        'client_id' => rand( 1,10),
+        'total' => rand( 50,100),
+        'status' => 0,
+    ];
+});
+
+$factory->define(delivery\Models\OrderItem::class, function(Faker\Generator $faker) {
+    return [
+    
+    ];
+});

@@ -44,6 +44,8 @@
                 <li><a href="#">Fornecedores</a></li>
         </ul>
       </li>
+			<li><a href="{{route('admin.orders.index')}}">Meus pedidos</a></li>
+
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">

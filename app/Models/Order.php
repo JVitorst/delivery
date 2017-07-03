@@ -21,6 +21,10 @@ class Order extends Model implements Transformable
       'status'
   ];
 
+  public function client(){
+    return $this->belongsTo(Client::class);
+  }
+
 //PEgando os items do pedido
   public function item(){
     return $this->hasMany(OrderItem::class);
@@ -28,7 +32,8 @@ class Order extends Model implements Transformable
 
 //Cada pedido é relacionado a um Deliveryman
   public function deliveryman(){
-    return $this->belongsTo(User::class);
+    //Relação do campo user_deliveryman_id cm o Id da tabela User
+    return $this->belongsTo(User::class, 'user_deliveryman_id', 'id');
   }
 
 
