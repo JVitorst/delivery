@@ -14,17 +14,29 @@ use delivery\Validators\ProductValidator;
  */
 class ProductRepositoryEloquent extends BaseRepository implements ProductRepository
 {
-
-
+  /**
+   * SoftDelete - funcção para permitir o uso da onlyTrashed(função do softdelete que permite
+   * listar apenas os deletados
+   */
   public function onlyTrashed() {
        $this->model = $this->model->onlyTrashed();
        return $this;
     }
-
+    /**
+     * SoftDelete - funcção para permitir o uso da withTrashed(função do softdelete que permite
+     * listar todos,, inclusive os deletados
+     */
   public function withTrashed() {
        $this->model = $this->model->withTrashed();
        return $this;
     }
+
+  public function lists($columns = null, $key =null){
+
+    return $products = $this->model->get(['id', 'name', 'price']);
+
+  }
+
 
     /**
      * Specify Model class name

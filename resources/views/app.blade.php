@@ -19,8 +19,8 @@
 	<![endif]-->
 </head>
 <body>
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
+	<nav  class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
 					<span class="sr-only">Toggle Navigation</span>
@@ -34,17 +34,24 @@
 			<div class="collapse navbar-collapse" id="navbar">
 				<ul class="nav navbar-nav">
 					<li><a href="{{ url('/') }}">Bem vindo</a></li>
-          <li class="dropdown">
-            <a data-toggle="dropdown" href="#">Controle
-              <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="{{route('admin.categories.index')}}">Categorias</a></li>
-                <li><a href="{{route('admin.products.index')}}">Produtos</a></li>
-                <li><a href="{{route('admin.clients.index')}}">Clientes</a></li>
-                <li><a href="#">Fornecedores</a></li>
-        </ul>
-      </li>
-			<li><a href="{{route('admin.orders.index')}}">Meus pedidos</a></li>
+				@if(Auth::user())
+					@if (Auth::user()->role == "admin")
+						<li class="dropdown">
+	            <a data-toggle="dropdown" href="#">Controle
+	              <span class="caret"></span></a>
+	              <ul class="dropdown-menu">
+	                <li><a href="{{route('admin.categories.index')}}">Categorias</a></li>
+	                <li><a href="{{route('admin.products.index')}}">Produtos</a></li>
+	                <li><a href="{{route('admin.clients.index')}}">Clientes</a></li>
+	                <li><a href="#">Fornecedores</a></li>
+	        </ul>
+	      </li>
+				<li><a href="{{route('admin.orders.index')}}">Pedidos</a></li>
+				<li><a href="{{route('admin.cupoms.index')}}">Meus Cupons</a></li>
+					@else
+						<li><a href="{{route('customer.order.index')}}">Meus pedidos</a></li>
+					@endif
+				@endif
 
 				</ul>
 
@@ -69,10 +76,15 @@
 		</div>
 	</nav>
 
+<div style="padding-top: 40px" class="container">
 	@yield('content')
+
+</div>
 
 	<!-- Scripts -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+@yield('post-script')
 </body>
+
 </html>

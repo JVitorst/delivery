@@ -54,6 +54,13 @@ $factory->define(delivery\Models\Order::class, function(Faker\Generator $faker) 
 
 $factory->define(delivery\Models\OrderItem::class, function(Faker\Generator $faker) {
     return [
-    
+
+    ];
+});
+
+$factory->define(delivery\Models\Cupom::class, function(Faker\Generator $faker) {
+    return [
+      'code' => rand( 100,100000),
+      'value' => rand( 50, 200),
     ];
 });
